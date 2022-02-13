@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.32002.261
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DlcCoatingOptimiser", "DlcCoatingOptimiser\DlcCoatingOptimiser.csproj", "{9F03AA5D-CE92-46A3-A683-1F2C8C241767}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DlcCoatingOptimiser", "DlcCoatingOptimiser\DlcCoatingOptimiser.csproj", "{9F03AA5D-CE92-46A3-A683-1F2C8C241767}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestDlcCoatingOptimiser", "TestDlcCoatingOptimiser\TestDlcCoatingOptimiser.csproj", "{F4075D11-AC51-49C1-84BB-0F28BE838BBA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{9F03AA5D-CE92-46A3-A683-1F2C8C241767}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9F03AA5D-CE92-46A3-A683-1F2C8C241767}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9F03AA5D-CE92-46A3-A683-1F2C8C241767}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F4075D11-AC51-49C1-84BB-0F28BE838BBA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F4075D11-AC51-49C1-84BB-0F28BE838BBA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F4075D11-AC51-49C1-84BB-0F28BE838BBA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F4075D11-AC51-49C1-84BB-0F28BE838BBA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
