@@ -13,8 +13,9 @@ namespace DlcCoatingOptimiser
         {
             Initialise_App();
             CreateSvmModel();
-            ParticleSwarm = new ParticleSwarm(MatlabRunner);
-            var result = ParticleSwarm.RunOptimisation((float)3.65, (float)0.5, 1000);
+            var evaluator = new Evaluator(MatlabRunner, (float)3.65, (float)0.5);
+            ParticleSwarm = new ParticleSwarm( evaluator);
+            var result = ParticleSwarm.RunOptimisation(1000, 1);
             if (result.Converged)
             {
                 Console.WriteLine($"Final Hardness: {result.FinalHardness}");
@@ -26,12 +27,12 @@ namespace DlcCoatingOptimiser
 
         private static void Initialise_App()
         {
-            MatlabRunner = new MatlabRunner();            
+            MatlabRunner = new MatlabSvmRunner();            
         }
 
         private static void CreateSvmModel()
         {
-            MatlabRunner.CreateSvmModel();
+            MatlabRunner.CreateModel();
         }
           
     }

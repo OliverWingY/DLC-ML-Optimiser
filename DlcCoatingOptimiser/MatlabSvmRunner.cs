@@ -6,18 +6,16 @@ using System.Threading.Tasks;
 
 namespace DlcCoatingOptimiser
 {
-    public class MatlabRunner : IMatlabRunner
+    public class MatlabSvmRunner : IMatlabRunner
     {
         private MLApp.MLApp Matlab;
         private string repo = "D:\\Repos\\DlcCoatingOptimiser\\DlcCoatingOptimiser\\MatlabScripts";
         private string initialiseName = "InitialiseMatlabWorkspace";
         private string checkWorkspaceName = "CheckWorkspace";
-        private string createSvmName = "BuildSvmModel";
-        private string createAnnName = "BuildAnnModel";
-        private string querySvmName = "QuerySvmModel";
-        private string queryAnnName = "QueryAnnModel";
+        private string createModelName = "BuildSvmModel";
+        private string queryModelName = "QuerySvmModel";
 
-        public MatlabRunner()
+        public MatlabSvmRunner()
         {
             Matlab = new MLApp.MLApp();
             Matlab.Execute($"cd {repo}");
@@ -25,27 +23,15 @@ namespace DlcCoatingOptimiser
             ValidateWorkspace();       
         }
 
-        public bool CreateAnnModel()
+        public bool CreateModel()
         {
-            Matlab.Feval(createAnnName, 1, out object successful);
+            Matlab.Feval(createModelName, 1, out object successful);
             return (bool)((object[])successful)[0];
         }
 
-        public bool CreateSvmModel()
+        public double QueryModel(double DepositionTime, double MicrowavePower, double WorkingPressure, double GasFlowRateRatio)
         {
-            Matlab.Feval(createSvmName, 1, out object successful);
-            return (bool)((object[])successful)[0];
-        }
-
-        public double QueryAnnModel(double DepositionTime, double MicrowavePower, double WorkingPressure, double GasFlowRateRatio)
-        {
-            Matlab.Feval(queryAnnName, 1, out object Hardness, DepositionTime, MicrowavePower, WorkingPressure, GasFlowRateRatio);
-            return (double)((object[])Hardness)[0];
-        }
-
-        public double QuerySvmModel(double DepositionTime, double MicrowavePower, double WorkingPressure, double GasFlowRateRatio)
-        {
-            Matlab.Feval(querySvmName, 1, out object Hardness, DepositionTime, MicrowavePower, WorkingPressure, GasFlowRateRatio);
+            Matlab.Feval(queryModelName, 1, out object Hardness, DepositionTime, MicrowavePower, WorkingPressure, GasFlowRateRatio);
             return (double)((object[])Hardness)[0];
         }
 

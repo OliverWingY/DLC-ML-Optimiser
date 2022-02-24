@@ -1,13 +1,15 @@
 ﻿using System;
 using System.Numerics;
 using DlcCoatingOptimiser.Interfaces;
+using System.Runtime.CompilerServices;
+[assembly:InternalsVisibleTo("IntegrationTests")]
 
 namespace DlcCoatingOptimiser.ParticleSwarmOptimiser
 {
     internal class Particle
     {
-        //system is x y z w: Time MicrowavePower WorkingPressure GasFlowRateRatio, normalised into 100x100x100x100 space
-        private Vector4 Position;
+        //system is x y z w: Time MicrowavePower WorkingPressure GasFlowRateRatio, normalised into 1x1x1x1 space        
+        internal Vector4 Position;
         private Vector4 Velocity;
         private IEvaluator Evaluator;
         public Vector4 BestPosition { get; private set; }

@@ -8,11 +8,8 @@ namespace DlcCoatingOptimiser
 {
     public interface IMatlabRunner
     {
-        public bool CreateSvmModel();
-        public double QuerySvmModel(double DepositionTime, double MicrowavePower, double WorkingPressure, double GasFlowRateRatio);
-        public bool CreateAnnModel();
-        public double QueryAnnModel(double DepositionTime, double MicrowavePower, double WorkingPressure, double GasFlowRateRatio);
-
+        public bool CreateModel();
+        public double QueryModel(double DepositionTime, double MicrowavePower, double WorkingPressure, double GasFlowRateRatio);
         public void Dispose();
     }
 }
