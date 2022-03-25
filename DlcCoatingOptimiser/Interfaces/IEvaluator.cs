@@ -11,6 +11,7 @@ namespace DlcCoatingOptimiser.Interfaces
     {
         public float EvaluatePosition(Vector4 position);
         public double GetHardness(Vector4 position);
-        public float GetEnergyUsage(Vector4 trueSettings);
+        public float GetEnergyUsage(Vector4 Postion);
+        public Vector4 NormaliseParticlePosition(Vector4 vector);
     }
 }

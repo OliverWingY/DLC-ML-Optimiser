@@ -19,7 +19,7 @@ namespace TestDlcCoatingOptimiser
             mockEvaluator.Setup(f => f.EvaluatePosition(It.IsAny<Vector4>())).Returns((Vector4 vector) => Evaluate(vector));
             mockEvaluator.Setup(f => f.GetHardness(It.IsAny<Vector4>())).Returns(1);
             mockEvaluator.Setup(f => f.GetEnergyUsage(It.IsAny<Vector4>())).Returns(1);
-            var PSO = new ParticleSwarm(mockEvaluator.Object);
+            var PSO = new ParticleSwarm(mockEvaluator.Object, false);
             //act
             var result = PSO.RunOptimisation(100, 0.1);
             //assert

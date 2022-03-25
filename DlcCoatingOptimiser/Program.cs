@@ -13,15 +13,15 @@ namespace DlcCoatingOptimiser
         {
             Initialise_App();
             CreateSvmModel();
-            var evaluator = new Evaluator(MatlabRunner, (float)3.65, (float)0.5);
-            ParticleSwarm = new ParticleSwarm( evaluator);
-            var result = ParticleSwarm.RunOptimisation(1000, 1);
+            var evaluator = new Evaluator(MatlabRunner, (float)4.5, (float)0.1);
+            ParticleSwarm = new ParticleSwarm(evaluator, true);
+            var result = ParticleSwarm.RunOptimisation(300, 0.05);
             if (result.Converged)
             {
                 Console.WriteLine($"Final Hardness: {result.FinalHardness}");
                 Console.WriteLine($"Final Energy usage: {result.EnergyUsage} W");
             }
-            else Console.WriteLine("Failed to converge");
+            else Console.WriteLine($"Failed to converge, final standard deviation: {result.FinalStandardDeviation}");
             MatlabRunner.Dispose();
         }
 

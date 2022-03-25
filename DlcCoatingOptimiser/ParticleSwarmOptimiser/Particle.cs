@@ -6,7 +6,7 @@ using System.Runtime.CompilerServices;
 
 namespace DlcCoatingOptimiser.ParticleSwarmOptimiser
 {
-    internal class Particle
+    public class Particle
     {
         //system is x y z w: Time MicrowavePower WorkingPressure GasFlowRateRatio, normalised into 1x1x1x1 space        
         internal Vector4 Position;
@@ -61,14 +61,56 @@ namespace DlcCoatingOptimiser.ParticleSwarmOptimiser
 
         private void BindPosition()
         {
-            if (Position.W > 1) Position.W = 1;
-            else if (Position.W < 0) Position.W = 0;
-            if (Position.X > 1) Position.X = 1;
-            else if (Position.X < 0) Position.X = 0;
-            if (Position.Y > 1) Position.Y = 1;
-            else if (Position.Y < 0) Position.Y = 0;
-            if (Position.Z > 1) Position.Z = 1;
-            else if (Position.Z < 0) Position.Z = 0;
+            if (Position.X > 1)
+            {
+                Position.X = 1;
+                Velocity.X = 0;
+            }
+            else if (Position.X < 0)
+            {
+                Position.X = 0;
+                Velocity.X = 0;
+            }
+            if (Position.Y > 1)
+            {
+                Position.Y = 1;
+                Velocity.Y = 0;
+            }
+            else if (Position.Y < 0)
+            {
+                Position.Y = 0;
+                Velocity.Y = 0;
+            }
+            if (Position.Z > 1)
+            {
+                Position.Z = 1;
+                Velocity.Z = 0;
+            }
+            else if (Position.Z < 0)
+            {
+                Position.Z = 0;
+                Velocity.Z = 0;
+            }
+            if (Position.Y > 1)
+            {
+                Position.Y = 1;
+                Velocity.Y = 0;
+            }
+            else if (Position.Y < 0)
+            {
+                Position.Y = 0;
+                Velocity.Y = 0;
+            }
+            if (Position.W > 1)
+            {
+                Position.W = 1;
+                Velocity.W = 0;
+            }
+            else if (Position.W < 0)
+            {
+                Position.W = 0;
+                Velocity.W = 0;
+            }
         }
     }
 }

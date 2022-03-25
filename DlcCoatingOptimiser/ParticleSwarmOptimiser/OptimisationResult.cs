@@ -11,7 +11,8 @@ namespace DlcCoatingOptimiser.ParticleSwarmOptimiser
         public float MicrowavePower;
         public float Pressure;
         public float GasFlowRatio;
-        public OptimisationResult(bool converged, double hardness,  float energyUsage, Vector4 Position)
+        public double FinalStandardDeviation;
+        public OptimisationResult(bool converged, double finalStandardDeviation, double hardness,  float energyUsage, Vector4 Position)
         {
             Converged = converged;
             FinalHardness = hardness;
@@ -20,6 +21,7 @@ namespace DlcCoatingOptimiser.ParticleSwarmOptimiser
             MicrowavePower = Position.Y;
             Pressure = Position.Z;
             GasFlowRatio = Position.W;
+            FinalStandardDeviation = finalStandardDeviation;
         }
     }
 }
