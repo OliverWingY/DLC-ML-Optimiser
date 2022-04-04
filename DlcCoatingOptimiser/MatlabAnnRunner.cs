@@ -3,13 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
 
 namespace DlcCoatingOptimiser
 {
     public class MatlabAnnRunner : IMatlabRunner
     {
         private MLApp.MLApp Matlab;
-        private string repo = "D:\\Repos\\DlcCoatingOptimiser\\DlcCoatingOptimiser\\MatlabScripts";
+        //todo: fix this jank
+        private string repo = Path.GetFullPath(Path.Join(Path.Combine(Directory.GetCurrentDirectory(), @"..\..\..\"), "\\MatlabScripts"));
         private string initialiseName = "InitialiseMatlabWorkspace";
         private string checkWorkspaceName = "CheckWorkspace";
         private string createModelName = "BuildAnnModel";

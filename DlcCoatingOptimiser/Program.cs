@@ -7,15 +7,20 @@ namespace DlcCoatingOptimiser
     
     public class Program
     {
+        //todo: make these args
+        private static float desiredHardness = (float)5;
+        private static float hardnessTolerance = (float)0.1;
+        private static float maxIterations = (float)200;
+        private static double minStandardDeviation = 0.05;
         private static IMatlabRunner MatlabRunner;
         private static ParticleSwarm ParticleSwarm;
         public static void Main(string[] args)
         {
             Initialise_App();
-            CreateSvmModel();
-            var evaluator = new Evaluator(MatlabRunner, (float)4.5, (float)0.1);
+            CreateAnnModel();
+            var evaluator = new Evaluator(MatlabRunner, desiredHardness, hardnessTolerance);
             ParticleSwarm = new ParticleSwarm(evaluator, true);
-            var result = ParticleSwarm.RunOptimisation(300, 0.05);
+            var result = ParticleSwarm.RunOptimisation(maxIterations, minStandardDeviation);
             if (result.Converged)
             {
                 Console.WriteLine($"Final Hardness: {result.FinalHardness}");
@@ -27,10 +32,10 @@ namespace DlcCoatingOptimiser
 
         private static void Initialise_App()
         {
-            MatlabRunner = new MatlabSvmRunner();            
+            MatlabRunner = new MatlabAnnRunner();            
         }
 
-        private static void CreateSvmModel()
+        private static void CreateAnnModel()
         {
             MatlabRunner.CreateModel();
         }

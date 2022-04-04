@@ -15,7 +15,8 @@ namespace DlcCoatingOptimiser.ParticleSwarmOptimiser.Tracing
     {
         private List<TrackerParticle> trackerParticles;
         private IEvaluator evaluator;
-        private string fileLocation = @"D:\Uni\Uni year 3\Individual project\Tracking\";
+        //todo: make this a config file
+        private string fileLocation = @"C:\Users\44742\Documents\Uni year 3\Individual project\Tracking\";
         private int numberOfTrackers;
         public TrackerWriter(int TotalNumberParticles, IEvaluator Evaluator)
         {
