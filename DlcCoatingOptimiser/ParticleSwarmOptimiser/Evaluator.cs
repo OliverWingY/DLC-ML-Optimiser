@@ -14,9 +14,9 @@ namespace DlcCoatingOptimiser.ParticleSwarmOptimiser
         private float Tolerance;
         private float auxilaryLoads = 500;
         //system is x y z w: Time MicrowavePower WorkingPressure GasFlowRateRatio
-        //Ranges: Time 36-50 power 900-1200 WorkingPressure 0.011-0.013 GasFlowRatio 10-100
-        private Vector4 normalisationScaleVector = new Vector4(14, 300, (float)0.002, 90);
-        private Vector4 normalisationOffsetVector = new Vector4(36,900, (float)0.011, 10);
+        //Ranges: Time 36-50 power 1000-1200 WorkingPressure 0.009-0.013 GasFlowRatio 10-100
+        private Vector4 normalisationScaleVector = new Vector4(14, 200, (float)0.004, 90);
+        private Vector4 normalisationOffsetVector = new Vector4(36,1000, (float)0.009, 10);
         public Evaluator(IMatlabRunner matlabRunner, float desiredHardness, float tolerance)
         {
             DesiredHardness = desiredHardness;

@@ -10,7 +10,7 @@ namespace DlcCoatingOptimiser
         //todo: make these args
         private static float desiredHardness = (float)5;
         private static float hardnessTolerance = (float)0.1;
-        private static float maxIterations = (float)200;
+        private static float maxIterations = (float)50;
         private static double minStandardDeviation = 0.05;
         private static IMatlabRunner MatlabRunner;
         private static ParticleSwarm ParticleSwarm;

@@ -16,12 +16,13 @@ namespace DlcCoatingOptimiser.ParticleSwarmOptimiser
         private TrackerWriter tracker;
         private float bestScore;
         private Vector4 bestPosition;
-        private float initialC1 = 1;
-        private float finalC1 = (float)0.3;
-        private float initialC2 = (float)0.3;
-        private float finalC2 = 1;
-        private float initialW = 1;
-        private float finalW = (float)0.3;
+        private float initialC1 = (float)0.1;
+        private float finalC1 = (float)0.1;
+        private float initialC2 = (float)1;
+        private float finalC2 = (float)1;
+        private float initialW = (float)0.1;
+        private float finalW = (float)0.1;
+
         private bool Tracking;
 
 
