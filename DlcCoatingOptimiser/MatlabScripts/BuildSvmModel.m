@@ -9,7 +9,7 @@ Hardness = [4.9;	4.1;	3.4;	2.1;	3.9;	2.5;	4.2;	2.2;	3.3; 4.7];
 
 CoatingData = table(DepositionTime,MicrowavePower,WorkingPressure, GasFlowRateRatio, Hardness);
 %CoatingData = table(MicrowavePower,WorkingPressure, GasFlowRateRatio, Hardness);
-SvmModel = fitrsvm(CoatingData, 'Hardness', 'KernelFunction','gaussian', 'Standardize',true);
+SvmModel = fitrsvm(CoatingData, 'Hardness', 'KernelFunction','gaussian', 'Standardize',true, 'Epsilon',0.1);
 
 assignin('base', 'SvmModel', SvmModel)
 successfull = true;
