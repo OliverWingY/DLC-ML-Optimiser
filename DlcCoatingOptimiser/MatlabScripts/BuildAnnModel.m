@@ -10,8 +10,11 @@ Hardness = [4.9;	4.1;	3.4;	2.1;	3.9;	2.5;	4.2;	2.2;	3.3; 4.7];
 inputMatrix = [DepositionTime, MicrowavePower, WorkingPressure, GasFlowRateRatio].';
 
 netconf = [6, 5];
-
+rng(53465);
 AnnModel = feedforwardnet(netconf);
+AnnModel.divideParam.trainRatio=0.8;
+AnnModel.divideParam.valRatio=0.1;
+AnnModel.divideParam.testRatio=0.1;
 AnnModel = train(AnnModel, inputMatrix, Hardness.');
 
 assignin('base', 'AnnModel', AnnModel)

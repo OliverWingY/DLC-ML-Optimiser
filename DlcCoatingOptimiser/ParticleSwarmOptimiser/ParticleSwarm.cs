@@ -16,11 +16,11 @@ namespace DlcCoatingOptimiser.ParticleSwarmOptimiser
         private TrackerWriter tracker;
         private float bestScore;
         private Vector4 bestPosition;
-        private float initialC1 = (float)0.1;
+        private float initialC1 = (float)0.8;
         private float finalC1 = (float)0.1;
-        private float initialC2 = (float)1;
+        private float initialC2 = (float)0.1;
         private float finalC2 = (float)1;
-        private float initialW = (float)0.1;
+        private float initialW = (float)0.8;
         private float finalW = (float)0.1;
 
         private bool Tracking;
@@ -66,7 +66,7 @@ namespace DlcCoatingOptimiser.ParticleSwarmOptimiser
                 (c1, c2, w) = GetCoefficients(progressFactor);
                 UpdateParticles(particles, c1, c2, w);
                 UpdateBest(particles);
-                if (i % 10 == 0 && GetStandardDeviation(particles) < minStandardDeviation)
+                if (GetStandardDeviation(particles) < minStandardDeviation)
                     converged = true;                    
                 if (Tracking)                
                     RecordPositions(particles, i);                
