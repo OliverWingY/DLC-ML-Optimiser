@@ -9,7 +9,7 @@ Hardness = [4.9;	4.1;	3.4;	2.1;	3.9;	2.5;	4.2;	2.2;	3.3; 4.7];
 
 inputMatrix = [DepositionTime, MicrowavePower, WorkingPressure, GasFlowRateRatio].';
 
-netconf = [6, 5];
+netconf = [5, 4];
 rng(53465);
 AnnModel = feedforwardnet(netconf);
 AnnModel.divideParam.trainRatio=0.8;
